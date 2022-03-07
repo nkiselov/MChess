@@ -1,0 +1,26 @@
+{
+    "name": "MChess",
+    "description": "Destroy",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": [
+        "tabs"
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["script.js","chess.js"],
+            "matches": [
+                "https://www.chess.com/*"
+                ]
+        }
+    ],
+    "content_scripts": [
+        {
+        "matches": [
+            "https://www.chess.com/*"
+            ],
+        "js": ["background.js"],
+        "run_at": "document_end"
+        }
+    ]
+}

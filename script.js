@@ -17,5 +17,8 @@ function listen(fn){
   }
   listen( ({data})=>
   {
-      
+      var dat = JSON.parse(data);
+      if(dat[0].channel.startsWith("/game")){
+        console.log(dat[0].data);
+      } 
   })

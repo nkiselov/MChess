@@ -387,7 +387,8 @@ function getArrowColor(e, t) {
           e.forEach((e=>{
               const {key: a} = e
                 , l = n.get(a);
-              l && (t.removeChild(l),
+                l && (l.remove(),
+              //l && (t.removeChild(l),
               n.delete(a))
           }
           ))
@@ -396,12 +397,13 @@ function getArrowColor(e, t) {
 var soc = new WebSocket("ws://localhost:12343")
 soc.onmessage = function(evt){
   let dt = JSON.parse(evt.safedata)
+  console.log(dt)
   if(dt.dp == 1){
-    removeArrows2([{key: "5-cur"},{key: "5-nxt"},{key: "cur"},{key: "nxt"}],arr)
+    removeArrows2([{key: "3-cur"},{key: "3-nxt"},{key: "cur"},{key: "nxt"}],arr)
   }
-  if(dt.dp == 4){
-    drawArrow("5-cur",dt.cur.substr(0,2),dt.cur.substr(2,2),"rgba(139, 152, 252, 0.8)",0.8)
-    drawArrow("5-nxt",dt.nxt.substr(0,2),dt.nxt.substr(2,2),"rgba(139, 152, 252, 0.4)",0.8)
+  if(dt.dp == 2){
+    drawArrow("3-cur",dt.cur.substr(0,2),dt.cur.substr(2,2),"rgba(139, 152, 252, 0.8)",0.8)
+    drawArrow("3-nxt",dt.nxt.substr(0,2),dt.nxt.substr(2,2),"rgba(139, 152, 252, 0.4)",0.8)
   }
   drawArrow("cur",dt.cur.substr(0,2),dt.cur.substr(2,2),"rgba(255, 170, 0, 0.8)",0.8)
   drawArrow("nxt",dt.nxt.substr(0,2),dt.nxt.substr(2,2),"rgba(255, 170, 0, 0.4)",0.8)
